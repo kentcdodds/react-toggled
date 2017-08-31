@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getTogglerProps for \`on\` false 1`] = `
+Object {
+  "aria-controls": "target",
+  "aria-expanded": false,
+  "id": "extra",
+  "onClick": [Function],
+}
+`;
+
+exports[`getTogglerProps for \`on\` true 1`] = `
+Object {
+  "aria-controls": "target",
+  "aria-expanded": true,
+  "id": "extra",
+  "onClick": [Function],
+}
+`;
