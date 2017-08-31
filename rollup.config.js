@@ -36,7 +36,7 @@ export default {
   entry: 'src/index.js',
   targets,
   exports: esm ? 'named' : 'default',
-  moduleName: 'Downshift',
+  moduleName: 'ReactToggled',
   format,
   external: isPreact ? ['preact', 'prop-types'] : ['react', 'prop-types'],
   globals: isPreact ?
