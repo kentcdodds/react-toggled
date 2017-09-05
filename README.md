@@ -221,8 +221,7 @@ MIT
 [all-contributors]: https://github.com/kentcdodds/all-contributors
 [ryan]: https://github.com/ryanflorence
 [compound-components-lecture]: https://courses.reacttraining.com/courses/advanced-react/lectures/3060560
-[react-autocomplete]: https://www.npmjs.com/package/react-autocomplete
-[jquery-complete]: https://jqueryui.com/autocomplete/
+
 [examples]: https://codesandbox.io/search?refinementList%5Btags%5D%5B0%5D=react-toggled%3Aexample&page=1
 [controlled-components-lecture]: https://courses.reacttraining.com/courses/advanced-react/lectures/3172720
 [react-training]: https://reacttraining.com/
