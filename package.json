@@ -2,7 +2,7 @@
   "name": "react-toggled",
   "version": "0.0.0-semantically-released",
   "description":
-    "A set of primitives to build simple, flexible, WAI-ARIA compliant React autocomplete components",
+    "Component to build simple, flexible, and accessible toggle components.",
   "main": "dist/react-toggled.cjs.js",
   "jsnext:main": "dist/react-toggled.es.js",
   "module": "dist/react-toggled.es.js",
