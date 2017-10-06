@@ -23,7 +23,7 @@ test('setOff sets `on` to false', () => {
   const {childSpy, setOff} = setup({defaultOn: true})
   setOff()
   expect(childSpy).toHaveBeenLastCalledWith(
-    expect.objectContaining({on: false}),
+    expect.objectContaining({on: false})
   )
 })
 
@@ -39,7 +39,7 @@ test('toggle changes the `on` state', () => {
   expect(childSpy).toHaveBeenLastCalledWith(expect.objectContaining({on: true}))
   toggle()
   expect(childSpy).toHaveBeenLastCalledWith(
-    expect.objectContaining({on: false}),
+    expect.objectContaining({on: false})
   )
 })
 
@@ -58,6 +58,16 @@ test('getTogglerProps does not blow up without an argument', () => {
   expect(() => getTogglerProps()).not.toThrow()
 })
 
+test('getTogglerProps sets a tabIndex if not present', () => {
+  const {getTogglerProps} = setup()
+  expect(getTogglerProps()).toHaveProperty('tabIndex', 0)
+})
+
+test('getTogglerProps passes existing tabIndex', () => {
+  const {getTogglerProps} = setup()
+  expect(getTogglerProps({tabIndex: 1})).toHaveProperty('tabIndex', 1)
+})
+
 test('getTogglerProps returns an onClick that calls the given onClick', () => {
   const {childSpy, getTogglerProps} = setup()
   const mockClick = jest.fn()
@@ -69,11 +79,67 @@ test('getTogglerProps returns an onClick that calls the given onClick', () => {
   expect(childSpy).toHaveBeenLastCalledWith(expect.objectContaining({on: true}))
 })
 
+test('getTogglerProps returns an onKeyUp that calls the given onKeyUp', () => {
+  const {getTogglerProps} = setup()
+  const mockKeyUp = jest.fn()
+  const {onKeyUp} = getTogglerProps({onKeyUp: mockKeyUp})
+  const fakeEvent = {target: document.createElement('span')}
+  onKeyUp(fakeEvent)
+  expect(mockKeyUp).toHaveBeenCalledTimes(1)
+  expect(mockKeyUp).toHaveBeenCalledWith(fakeEvent)
+})
+
+test('getTogglerProps returns an onKeyUp that toggles on enter', () => {
+  const {childSpy, getTogglerProps} = setup()
+  const {onKeyUp} = getTogglerProps()
+  const fakeEvent = {target: document.createElement('span'), key: 'Enter'}
+  onKeyUp(fakeEvent)
+  expect(childSpy).toHaveBeenLastCalledWith(expect.objectContaining({on: true}))
+})
+
+test('getTogglerProps returns an onKeyUp that toggles on spacebar', () => {
+  const {childSpy, getTogglerProps} = setup()
+  const {onKeyUp} = getTogglerProps()
+  const fakeEvent = {target: document.createElement('span'), key: ' '}
+  onKeyUp(fakeEvent)
+  expect(childSpy).toHaveBeenLastCalledWith(expect.objectContaining({on: true}))
+})
+
+test('getTogglerProps returns an onKeyUp that does not toggle on other keys', () => {
+  const {childSpy, getTogglerProps} = setup()
+  const {onKeyUp} = getTogglerProps()
+  const fakeEvent = {target: document.createElement('span')}
+  onKeyUp(fakeEvent)
+  expect(childSpy).toHaveBeenLastCalledWith(
+    expect.objectContaining({on: false})
+  )
+})
+
+test('getTogglerProps returns an onKeyUp that does not toggle on buttons', () => {
+  const {childSpy, getTogglerProps} = setup()
+  const {onKeyUp} = getTogglerProps()
+  const fakeEvent = {target: document.createElement('button')}
+  onKeyUp(fakeEvent)
+  expect(childSpy).toHaveBeenLastCalledWith(
+    expect.objectContaining({on: false})
+  )
+})
+
+test('getTogglerProps returns an onKeyUp that does not toggle on spacebar on inputs', () => {
+  const {childSpy, getTogglerProps} = setup()
+  const {onKeyUp} = getTogglerProps()
+  const fakeEvent = {target: document.createElement('input')}
+  onKeyUp(fakeEvent)
+  expect(childSpy).toHaveBeenLastCalledWith(
+    expect.objectContaining({on: false})
+  )
+})
+
 test('children can be an array (for preact support)', () => {
   const childSpy = jest.fn(() => <div />)
   mount(<Toggler>{[childSpy]}</Toggler>)
   expect(childSpy).toHaveBeenLastCalledWith(
-    expect.objectContaining({on: false}),
+    expect.objectContaining({on: false})
   )
 })
 

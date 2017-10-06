@@ -14,7 +14,7 @@
 [![version][version-badge]][package]
 [![MIT License][license-badge]][LICENSE]
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
 [![PRs Welcome][prs-badge]][prs]
 [![Chat][chat-badge]][chat]
 [![Code of Conduct][coc-badge]][coc]
@@ -137,7 +137,7 @@ The function is passed as the child prop:
 | property          | category    | type                      | description                                                                                      |
 |-------------------|-------------|---------------------------|--------------------------------------------------------------------------------------------------|
 | `on`              | state       | `boolean`                 | The current `on` state of toggle                                                                 |
-| `getTogglerProps` | prop getter | `function(props: object)` | returns the props you should apply to the button element you render. Includes `aria-` attributes |
+| `getTogglerProps` | prop getter | `function(props: object)` | returns the props you should apply to the element you render. Includes `aria-` attributes |
 | `setOn`           | action      | `function()`              | Sets the `on` state to `true`                                                                    |
 | `setOff`          | action      | `function()`              | Sets the `on` state to `false`                                                                   |
 | `toggle`          | action      | `function()`              | Toggles the `on` state (i.e. if it's currently `true`, will set to `false`)                      |
@@ -176,8 +176,8 @@ are tons of them, so just
 Thanks goes to these people ([emoji key][emojis]):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-| [<img src="https://avatars.githubusercontent.com/u/1500684?v=3" width="100px;"/><br /><sub>Kent C. Dodds</sub>](https://kentcdodds.com)<br />[💻](https://github.com/kentcdodds/react-toggled/commits?author=kentcdodds "Code") [📖](https://github.com/kentcdodds/react-toggled/commits?author=kentcdodds "Documentation") [🚇](#infra-kentcdodds "Infrastructure (Hosting, Build-Tools, etc)") [⚠️](https://github.com/kentcdodds/react-toggled/commits?author=kentcdodds "Tests") |
-| :---: |
+| [<img src="https://avatars.githubusercontent.com/u/1500684?v=3" width="100px;"/><br /><sub>Kent C. Dodds</sub>](https://kentcdodds.com)<br />[💻](https://github.com/kentcdodds/react-toggled/commits?author=kentcdodds "Code") [📖](https://github.com/kentcdodds/react-toggled/commits?author=kentcdodds "Documentation") [🚇](#infra-kentcdodds "Infrastructure (Hosting, Build-Tools, etc)") [⚠️](https://github.com/kentcdodds/react-toggled/commits?author=kentcdodds "Tests") | [<img src="https://avatars3.githubusercontent.com/u/9488719?v=4" width="100px;"/><br /><sub>Frank Tan</sub>](https://github.com/tansongyang)<br />[💻](https://github.com/kentcdodds/react-toggled/commits?author=tansongyang "Code") [📖](https://github.com/kentcdodds/react-toggled/commits?author=tansongyang "Documentation") [⚠️](https://github.com/kentcdodds/react-toggled/commits?author=tansongyang "Tests") |
+| :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.

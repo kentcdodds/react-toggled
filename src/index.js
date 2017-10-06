@@ -29,8 +29,10 @@ class Toggle extends Component {
   getTogglerProps = (props = {}) => ({
     'aria-controls': 'target',
     'aria-expanded': Boolean(this.getOn()),
+    tabIndex: props.tabIndex == null ? 0 : props.tabIndex,
     ...props,
     onClick: callAll(props.onClick, this.toggle),
+    onKeyUp: callAll(props.onKeyUp, this.handleKeyUp),
   })
 
   getTogglerStateAndHelpers() {
@@ -56,6 +58,20 @@ class Toggle extends Component {
   setOn = this.setOnState.bind(this, true)
   setOff = this.setOnState.bind(this, false)
   toggle = this.setOnState.bind(this, undefined)
+
+  toggleKeys = ['Enter', ' '] // This matches <button> behavior
+  handleKeyUp = event => {
+    const type = event.target.tagName.toLowerCase()
+    // Browsers already do this work for us for certain combinations of
+    // elements and keys
+    if (
+      type !== 'button' &&
+      !(type === 'input' && event.key === ' ') &&
+      this.toggleKeys.indexOf(event.key) > -1
+    ) {
+      this.toggle()
+    }
+  }
 
   render() {
     const renderProp = unwrapArray(this.props.children)
