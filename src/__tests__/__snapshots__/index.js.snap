@@ -6,7 +6,6 @@ Object {
   "aria-expanded": false,
   "id": "extra",
   "onClick": [Function],
-  "onKeyUp": [Function],
   "tabIndex": 0,
 }
 `;
@@ -17,7 +16,6 @@ Object {
   "aria-expanded": true,
   "id": "extra",
   "onClick": [Function],
-  "onKeyUp": [Function],
   "tabIndex": 0,
 }
 `;

@@ -4,7 +4,7 @@ import Toggle from '../../src'
 function Switch() {
   return (
     <Toggle>
-      {({on, getTogglerProps}) => (
+      {({on, getGenericTogglerProps}) => (
         <span
           role="switch"
           aria-checked={on.toString()}
@@ -17,7 +17,7 @@ function Switch() {
             width: '40px',
             height: '20px',
           }}
-          {...getTogglerProps()}
+          {...getGenericTogglerProps()}
         >
           <span
             style={{

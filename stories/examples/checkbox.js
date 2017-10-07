@@ -4,7 +4,7 @@ import Toggle from '../../src'
 function Checkbox() {
   return (
     <Toggle>
-      {({on, getTogglerProps}) => (
+      {({on, getInputTogglerProps}) => (
         <span
           style={{
             position: 'relative',
@@ -23,7 +23,7 @@ function Checkbox() {
               height: '100%',
               margin: 0,
             }}
-            {...getTogglerProps()}
+            {...getInputTogglerProps()}
           />
           <span
             style={{
