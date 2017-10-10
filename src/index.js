@@ -29,14 +29,38 @@ class Toggle extends Component {
   getTogglerProps = (props = {}) => ({
     'aria-controls': 'target',
     'aria-expanded': Boolean(this.getOn()),
+    tabIndex: 0,
     ...props,
     onClick: callAll(props.onClick, this.toggle),
   })
+
+  toggleKeys = ['Enter', ' '] // This matches <button> behavior
+
+  getInputTogglerProps = (props = {}) =>
+    this.getTogglerProps({
+      onKeyUp: callAll(props.onKeyUp, event => {
+        if (event.key === 'Enter') {
+          // <input> already respond to Enter
+          this.toggle()
+        }
+      }),
+    })
+
+  getElementTogglerProps = (props = {}) =>
+    this.getTogglerProps({
+      onKeyUp: callAll(props.onKeyUp, event => {
+        if (this.toggleKeys.indexOf(event.key) > -1) {
+          this.toggle()
+        }
+      }),
+    })
 
   getTogglerStateAndHelpers() {
     return {
       on: this.getOn(),
       getTogglerProps: this.getTogglerProps,
+      getInputTogglerProps: this.getInputTogglerProps,
+      getElementTogglerProps: this.getElementTogglerProps,
       setOn: this.setOn,
       setOff: this.setOff,
       toggle: this.toggle,
