@@ -46,7 +46,7 @@ class Toggle extends Component {
       }),
     })
 
-  getGenericTogglerProps = (props = {}) =>
+  getElementTogglerProps = (props = {}) =>
     this.getTogglerProps({
       onKeyUp: callAll(props.onKeyUp, event => {
         if (this.toggleKeys.indexOf(event.key) > -1) {
@@ -60,7 +60,7 @@ class Toggle extends Component {
       on: this.getOn(),
       getTogglerProps: this.getTogglerProps,
       getInputTogglerProps: this.getInputTogglerProps,
-      getGenericTogglerProps: this.getGenericTogglerProps,
+      getElementTogglerProps: this.getElementTogglerProps,
       setOn: this.setOn,
       setOff: this.setOff,
       toggle: this.toggle,

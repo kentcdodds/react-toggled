@@ -79,25 +79,25 @@ test('getTogglerProps returns an onClick that calls the given onClick', () => {
   expect(childSpy).toHaveBeenLastCalledWith(expect.objectContaining({on: true}))
 })
 
-test('getGenericTogglerProps returns an onKeyUp that toggles on enter', () => {
-  const {childSpy, getGenericTogglerProps} = setup()
-  const {onKeyUp} = getGenericTogglerProps()
+test('getElementTogglerProps returns an onKeyUp that toggles on enter', () => {
+  const {childSpy, getElementTogglerProps} = setup()
+  const {onKeyUp} = getElementTogglerProps()
   const fakeEvent = {target: null, key: 'Enter'}
   onKeyUp(fakeEvent)
   expect(childSpy).toHaveBeenLastCalledWith(expect.objectContaining({on: true}))
 })
 
-test('getGenericTogglerProps returns an onKeyUp that toggles on spacebar', () => {
-  const {childSpy, getGenericTogglerProps} = setup()
-  const {onKeyUp} = getGenericTogglerProps()
+test('getElementTogglerProps returns an onKeyUp that toggles on spacebar', () => {
+  const {childSpy, getElementTogglerProps} = setup()
+  const {onKeyUp} = getElementTogglerProps()
   const fakeEvent = {target: null, key: ' '}
   onKeyUp(fakeEvent)
   expect(childSpy).toHaveBeenLastCalledWith(expect.objectContaining({on: true}))
 })
 
-test('getGenericTogglerProps returns an onKeyUp that does not toggle on other keys', () => {
-  const {childSpy, getGenericTogglerProps} = setup()
-  const {onKeyUp} = getGenericTogglerProps()
+test('getElementTogglerProps returns an onKeyUp that does not toggle on other keys', () => {
+  const {childSpy, getElementTogglerProps} = setup()
+  const {onKeyUp} = getElementTogglerProps()
   const fakeEvent = {target: null}
   onKeyUp(fakeEvent)
   expect(childSpy).toHaveBeenLastCalledWith(
