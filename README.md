@@ -137,7 +137,9 @@ The function is passed as the child prop:
 | property          | category    | type                      | description                                                                                      |
 |-------------------|-------------|---------------------------|--------------------------------------------------------------------------------------------------|
 | `on`              | state       | `boolean`                 | The current `on` state of toggle                                                                 |
-| `getTogglerProps` | prop getter | `function(props: object)` | returns the props you should apply to the element you render. Includes `aria-` attributes |
+| `getTogglerProps` | prop getter | `function(props: object)` | returns the props you should apply to the button element you render. Includes `aria-` attributes |
+| `getInputTogglerProps` | prop getter | `function(props: object)` | returns the props you should apply to the input (checkbox) element you render. Includes `aria-` attributes |
+| `getElementTogglerProps` | prop getter | `function(props: object)` | returns the props you should apply to the element you render. Use this if you are not using a button or input—for example, a span. Includes `aria-` attributes |
 | `setOn`           | action      | `function()`              | Sets the `on` state to `true`                                                                    |
 | `setOff`          | action      | `function()`              | Sets the `on` state to `false`                                                                   |
 | `toggle`          | action      | `function()`              | Toggles the `on` state (i.e. if it's currently `true`, will set to `false`)                      |
