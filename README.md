@@ -1,3 +1,26 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [
+  react-toggled ⚛️
+  
+  
+  
+](#react-toggled-)
+  - [The problem](#the-problem)
+  - [This solution](#this-solution)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Props:](#props)
+  - [Examples](#examples)
+  - [Inspiration](#inspiration)
+  - [Other Solutions](#other-solutions)
+  - [Contributors](#contributors)
+  - [LICENSE](#license)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 <h1 align="center">
   react-toggled ⚛️
   <br>
@@ -53,8 +76,8 @@ npm install --save react-toggled
 > have those installed as well.
 
 > Note also this library supports `preact` out of the box. If you are using
-> `preact` then look in the `dist/` folder and use the module you want with the
-> `preact` suffix.
+> `preact` then look in the `preact/` folder and use the module you want.
+> You should be able to simply do: `import Toggle from 'react-toggled/preact'`
 
 ## Usage
 

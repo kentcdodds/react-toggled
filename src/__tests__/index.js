@@ -23,7 +23,7 @@ test('setOff sets `on` to false', () => {
   const {childSpy, setOff} = setup({defaultOn: true})
   setOff()
   expect(childSpy).toHaveBeenLastCalledWith(
-    expect.objectContaining({on: false})
+    expect.objectContaining({on: false}),
   )
 })
 
@@ -39,7 +39,7 @@ test('toggle changes the `on` state', () => {
   expect(childSpy).toHaveBeenLastCalledWith(expect.objectContaining({on: true}))
   toggle()
   expect(childSpy).toHaveBeenLastCalledWith(
-    expect.objectContaining({on: false})
+    expect.objectContaining({on: false}),
   )
 })
 
@@ -101,7 +101,7 @@ test('getElementTogglerProps returns an onKeyUp that does not toggle on other ke
   const fakeEvent = {target: null}
   onKeyUp(fakeEvent)
   expect(childSpy).toHaveBeenLastCalledWith(
-    expect.objectContaining({on: false})
+    expect.objectContaining({on: false}),
   )
 })
 
@@ -119,7 +119,7 @@ test('getInputTogglerProps returns an onKeyUp that does not toggle on spacebar',
   const fakeEvent = {target: null}
   onKeyUp(fakeEvent)
   expect(childSpy).toHaveBeenLastCalledWith(
-    expect.objectContaining({on: false})
+    expect.objectContaining({on: false}),
   )
 })
 
@@ -127,7 +127,7 @@ test('children can be an array (for preact support)', () => {
   const childSpy = jest.fn(() => <div />)
   mount(<Toggler>{[childSpy]}</Toggler>)
   expect(childSpy).toHaveBeenLastCalledWith(
-    expect.objectContaining({on: false})
+    expect.objectContaining({on: false}),
   )
 })
 

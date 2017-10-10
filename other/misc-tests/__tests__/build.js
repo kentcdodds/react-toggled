@@ -11,31 +11,31 @@
  */
 import assert from 'assert'
 
-import esImport from '../dist/react-toggled.es'
+import esImport from '../../../dist/react-toggled.esm'
 
-import cjsImport from '../' // picks up the main from package.json
+import cjsImport from '../../../' // picks up the main from package.json
 
-import umdImport from '../dist/react-toggled.umd'
+import umdImport from '../../../dist/react-toggled.umd'
 
 // intentionally left out because you shouldn't ever
 // try to require the ES file in CommonJS
-// const esRequire = require('../dist/react-toggled.es')
-const cjsRequire = require('../') // picks up the main from package.json
-const umdRequire = require('../dist/react-toggled.umd')
+// const esRequire = require('../../../dist/react-toggled.es')
+const cjsRequire = require('../../../') // picks up the main from package.json
+const umdRequire = require('../../../dist/react-toggled.umd')
 
 test('stuff is good', () => {
   assert(isToggleComponent(esImport), 'ES build has a problem with ES Modules')
 
   assert(
     isToggleComponent(cjsImport),
-    'CJS build has a problem with ES Modules'
+    'CJS build has a problem with ES Modules',
   )
 
   assert(isToggleComponent(cjsRequire), 'CJS build has a problem with CJS')
 
   assert(
     isToggleComponent(umdImport),
-    'UMD build has a problem with ES Modules'
+    'UMD build has a problem with ES Modules',
   )
 
   assert(isToggleComponent(umdRequire), 'UMD build has a problem with CJS')
@@ -47,8 +47,8 @@ function isToggleComponent(thing) {
   if (typeof thing !== 'function') {
     console.error(
       `react-toggled thing should be a function. It's a ${typeof thing} with the properties of: ${Object.keys(
-        thing
-      ).join(', ')}`
+        thing,
+      ).join(', ')}`,
     )
     return false
   }
