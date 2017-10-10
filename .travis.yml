@@ -2,16 +2,16 @@ sudo: false
 language: node_js
 cache:
   directories:
-    - node_modules
+    - ~/.npm
 notifications:
   email: false
-node_js:
-  - '8'
-script:
-  - npm start validate
-after_success:
-  - npx codecov
-  - npm i -g semantic-release && semantic-release pre && npm publish && semantic-release post
+node_js: '8'
+install: npm install
+before_script:
+  - cd stories
+  - npm install
+  - cd ..
+script: npm run validate
+after_success: kcd-scripts travis-after-success
 branches:
-  only:
-    - master
+  only: master

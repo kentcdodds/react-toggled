@@ -19,7 +19,7 @@ for preact before running this test.
 
 import preact from 'preact'
 import render from 'preact-render-to-string'
-import Toggle from '../dist/react-toggled.preact.cjs'
+import Toggle from '../../../preact/dist/react-toggled.esm'
 
 test('works with preact', () => {
   const childSpy = jest.fn(({on, getTogglerProps}) => (
