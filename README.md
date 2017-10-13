@@ -1,26 +1,3 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-
-- [
-  react-toggled ⚛️
-  
-  
-  
-](#react-toggled-)
-  - [The problem](#the-problem)
-  - [This solution](#this-solution)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Props:](#props)
-  - [Examples](#examples)
-  - [Inspiration](#inspiration)
-  - [Other Solutions](#other-solutions)
-  - [Contributors](#contributors)
-  - [LICENSE](#license)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 <h1 align="center">
   react-toggled ⚛️
   <br>
@@ -62,6 +39,22 @@ rendering and state.
 
 This follows the patterns in [`downshift`][downshift] to expose an API that
 renders nothing and simply encapsulates the logic of a toggle component.
+
+## Table of Contents
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Props:](#props)
+- [Examples](#examples)
+- [Inspiration](#inspiration)
+- [Other Solutions](#other-solutions)
+- [Contributors](#contributors)
+- [LICENSE](#license)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Installation
 
