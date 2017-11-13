@@ -27,7 +27,6 @@ class Toggle extends Component {
   }
 
   getTogglerProps = (props = {}) => ({
-    'aria-controls': 'target',
     'aria-expanded': Boolean(this.getOn()),
     tabIndex: 0,
     ...props,
