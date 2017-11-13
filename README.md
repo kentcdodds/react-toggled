@@ -14,7 +14,7 @@
 [![version][version-badge]][package]
 [![MIT License][license-badge]][LICENSE]
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
 [![PRs Welcome][prs-badge]][prs]
 [![Chat][chat-badge]][chat]
 [![Code of Conduct][coc-badge]][coc]
@@ -194,8 +194,8 @@ are tons of them, so just
 Thanks goes to these people ([emoji key][emojis]):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-| [<img src="https://avatars.githubusercontent.com/u/1500684?v=3" width="100px;"/><br /><sub>Kent C. Dodds</sub>](https://kentcdodds.com)<br />[💻](https://github.com/kentcdodds/react-toggled/commits?author=kentcdodds "Code") [📖](https://github.com/kentcdodds/react-toggled/commits?author=kentcdodds "Documentation") [🚇](#infra-kentcdodds "Infrastructure (Hosting, Build-Tools, etc)") [⚠️](https://github.com/kentcdodds/react-toggled/commits?author=kentcdodds "Tests") | [<img src="https://avatars3.githubusercontent.com/u/9488719?v=4" width="100px;"/><br /><sub>Frank Tan</sub>](https://github.com/tansongyang)<br />[💻](https://github.com/kentcdodds/react-toggled/commits?author=tansongyang "Code") [📖](https://github.com/kentcdodds/react-toggled/commits?author=tansongyang "Documentation") [⚠️](https://github.com/kentcdodds/react-toggled/commits?author=tansongyang "Tests") |
-| :---: | :---: |
+| [<img src="https://avatars.githubusercontent.com/u/1500684?v=3" width="100px;"/><br /><sub><b>Kent C. Dodds</b></sub>](https://kentcdodds.com)<br />[💻](https://github.com/kentcdodds/react-toggled/commits?author=kentcdodds "Code") [📖](https://github.com/kentcdodds/react-toggled/commits?author=kentcdodds "Documentation") [🚇](#infra-kentcdodds "Infrastructure (Hosting, Build-Tools, etc)") [⚠️](https://github.com/kentcdodds/react-toggled/commits?author=kentcdodds "Tests") | [<img src="https://avatars3.githubusercontent.com/u/9488719?v=4" width="100px;"/><br /><sub><b>Frank Tan</b></sub>](https://github.com/tansongyang)<br />[💻](https://github.com/kentcdodds/react-toggled/commits?author=tansongyang "Code") [📖](https://github.com/kentcdodds/react-toggled/commits?author=tansongyang "Documentation") [⚠️](https://github.com/kentcdodds/react-toggled/commits?author=tansongyang "Tests") | [<img src="https://avatars1.githubusercontent.com/u/9408641?v=4" width="100px;"/><br /><sub><b>Oliver</b></sub>](http://www.oliverjam.es)<br />[💻](https://github.com/kentcdodds/react-toggled/commits?author=oliverjam "Code") |
+| :---: | :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
