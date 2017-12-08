@@ -44,7 +44,8 @@
     "prop-types": "^15.5.10",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-test-renderer": "^16.0.0"
+    "react-test-renderer": "^16.0.0",
+    "typescript": "^2.6.2"
   },
   "eslintConfig": {
     "extends": "./node_modules/kcd-scripts/eslint.js"
