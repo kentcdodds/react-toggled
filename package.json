@@ -6,12 +6,14 @@
   "main": "dist/react-toggled.cjs.js",
   "jsnext:main": "dist/react-toggled.esm.js",
   "module": "dist/react-toggled.esm.js",
+  "typings": "typings/index.d.ts",
   "scripts": {
     "add-contributor": "kcd-scripts contributors add",
     "build": "kcd-scripts build --bundle --p-react",
     "lint": "kcd-scripts lint",
     "test": "kcd-scripts test",
     "test:cover": "kcd-scripts test --coverage",
+    "test:ts": "tsc --noEmit -p ./tsconfig.json",
     "test:update": "npm run test:cover -s -- --updateSnapshot",
     "test:build":
       "kcd-scripts test --config other/misc-tests/jest.config.js --no-watch",
@@ -19,7 +21,7 @@
     "storybook": "start-storybook -p 6006 -c stories",
     "storybook:build":
       "cd stories && npm install && cd .. && build-storybook -c stories",
-    "validate": "kcd-scripts validate lint,build-and-test,test:cover",
+    "validate": "kcd-scripts validate lint,build-and-test,test:cover,test:ts",
     "precommit": "kcd-scripts precommit"
   },
   "files": ["dist", "typings", "preact"],
