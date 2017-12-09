@@ -12,9 +12,9 @@
 [![Code Coverage][coverage-badge]][coverage]
 [![downloads][downloads-badge]][npmcharts]
 [![version][version-badge]][package]
-[![MIT License][license-badge]][LICENSE]
+[![MIT License][license-badge]][license]
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors)
 [![PRs Welcome][prs-badge]][prs]
 [![Chat][chat-badge]][chat]
 [![Code of Conduct][coc-badge]][coc]
@@ -41,18 +41,23 @@ This follows the patterns in [`downshift`][downshift] to expose an API that
 renders nothing and simply encapsulates the logic of a toggle component.
 
 ## Table of Contents
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
+
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Props:](#props)
-- [Examples](#examples)
-- [Inspiration](#inspiration)
-- [Other Solutions](#other-solutions)
-- [Contributors](#contributors)
-- [LICENSE](#license)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Props:](#props)
+  * [defaultOn](#defaulton)
+  * [onToggle](#ontoggle)
+  * [on](#on)
+  * [children](#children)
+* [Examples](#examples)
+* [Inspiration](#inspiration)
+* [Other Solutions](#other-solutions)
+* [Contributors](#contributors)
+* [LICENSE](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -88,7 +93,7 @@ render(
       </div>
     )}
   </Toggle>,
-  document.getElementById('root')
+  document.getElementById('root'),
 )
 ```
 
@@ -110,8 +115,8 @@ The initial `on` state.
 
 Called when the toggler is clicked.
 
-- `on`: The new on state
-- `TogglerStateAndHelpers`: the exact same thing you get in your child render
+* `on`: The new on state
+* `TogglerStateAndHelpers`: the exact same thing you get in your child render
   prop function.
 
 ### on
@@ -135,12 +140,11 @@ that state from other components, `redux`, `react-router`, or anywhere else.
 > in react (like `<input />`). If you want to learn more about this concept, you
 > can learn about that from this the
 > ["Controlled Components" lecture][controlled-components-lecture] and
-> exercises from [React Training's][react-training]
-> [Advanced React][advanced-react] course.
+> exercises from [React Training's][react-training] > [Advanced React][advanced-react] course.
 
 ### children
 
-> `function({})` | *required*
+> `function({})` | _required_
 
 This is called with an object.
 
@@ -150,21 +154,21 @@ The function is passed as the child prop:
 
 <!-- This table was generated via http://www.tablesgenerator.com/markdown_tables -->
 
-| property          | category    | type                      | description                                                                                      |
-|-------------------|-------------|---------------------------|--------------------------------------------------------------------------------------------------|
-| `on`              | state       | `boolean`                 | The current `on` state of toggle                                                                 |
-| `getTogglerProps` | prop getter | `function(props: object)` | returns the props you should apply to the button element you render. Includes `aria-` attributes |
-| `getInputTogglerProps` | prop getter | `function(props: object)` | returns the props you should apply to the input (checkbox) element you render. Includes `aria-` attributes |
+| property                 | category    | type                      | description                                                                                                                                                    |
+| ------------------------ | ----------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `on`                     | state       | `boolean`                 | The current `on` state of toggle                                                                                                                               |
+| `getTogglerProps`        | prop getter | `function(props: object)` | returns the props you should apply to the button element you render. Includes `aria-` attributes                                                               |
+| `getInputTogglerProps`   | prop getter | `function(props: object)` | returns the props you should apply to the input (checkbox) element you render. Includes `aria-` attributes                                                     |
 | `getElementTogglerProps` | prop getter | `function(props: object)` | returns the props you should apply to the element you render. Use this if you are not using a button or input—for example, a span. Includes `aria-` attributes |
-| `setOn`           | action      | `function()`              | Sets the `on` state to `true`                                                                    |
-| `setOff`          | action      | `function()`              | Sets the `on` state to `false`                                                                   |
-| `toggle`          | action      | `function()`              | Toggles the `on` state (i.e. if it's currently `true`, will set to `false`)                      |
+| `setOn`                  | action      | `function()`              | Sets the `on` state to `true`                                                                                                                                  |
+| `setOff`                 | action      | `function()`              | Sets the `on` state to `false`                                                                                                                                 |
+| `toggle`                 | action      | `function()`              | Toggles the `on` state (i.e. if it's currently `true`, will set to `false`)                                                                                    |
 
 ## Examples
 
 Examples exist on [codesandbox.io][examples]:
 
-- [Bare bones toggle](https://codesandbox.io/s/m38674w9vy)
+* [Bare bones toggle](https://codesandbox.io/s/m38674w9vy)
 
 If you would like to add an example, follow these steps:
 
@@ -194,8 +198,11 @@ are tons of them, so just
 Thanks goes to these people ([emoji key][emojis]):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-| [<img src="https://avatars.githubusercontent.com/u/1500684?v=3" width="100px;"/><br /><sub><b>Kent C. Dodds</b></sub>](https://kentcdodds.com)<br />[💻](https://github.com/kentcdodds/react-toggled/commits?author=kentcdodds "Code") [📖](https://github.com/kentcdodds/react-toggled/commits?author=kentcdodds "Documentation") [🚇](#infra-kentcdodds "Infrastructure (Hosting, Build-Tools, etc)") [⚠️](https://github.com/kentcdodds/react-toggled/commits?author=kentcdodds "Tests") | [<img src="https://avatars3.githubusercontent.com/u/9488719?v=4" width="100px;"/><br /><sub><b>Frank Tan</b></sub>](https://github.com/tansongyang)<br />[💻](https://github.com/kentcdodds/react-toggled/commits?author=tansongyang "Code") [📖](https://github.com/kentcdodds/react-toggled/commits?author=tansongyang "Documentation") [⚠️](https://github.com/kentcdodds/react-toggled/commits?author=tansongyang "Tests") | [<img src="https://avatars1.githubusercontent.com/u/9408641?v=4" width="100px;"/><br /><sub><b>Oliver</b></sub>](http://www.oliverjam.es)<br />[💻](https://github.com/kentcdodds/react-toggled/commits?author=oliverjam "Code") |
-| :---: | :---: | :---: |
+
+<!-- prettier-ignore -->
+| [<img src="https://avatars.githubusercontent.com/u/1500684?v=3" width="100px;"/><br /><sub><b>Kent C. Dodds</b></sub>](https://kentcdodds.com)<br />[💻](https://github.com/kentcdodds/react-toggled/commits?author=kentcdodds "Code") [📖](https://github.com/kentcdodds/react-toggled/commits?author=kentcdodds "Documentation") [🚇](#infra-kentcdodds "Infrastructure (Hosting, Build-Tools, etc)") [⚠️](https://github.com/kentcdodds/react-toggled/commits?author=kentcdodds "Tests") | [<img src="https://avatars3.githubusercontent.com/u/9488719?v=4" width="100px;"/><br /><sub><b>Frank Tan</b></sub>](https://github.com/tansongyang)<br />[💻](https://github.com/kentcdodds/react-toggled/commits?author=tansongyang "Code") [📖](https://github.com/kentcdodds/react-toggled/commits?author=tansongyang "Documentation") [⚠️](https://github.com/kentcdodds/react-toggled/commits?author=tansongyang "Tests") | [<img src="https://avatars1.githubusercontent.com/u/9408641?v=4" width="100px;"/><br /><sub><b>Oliver</b></sub>](http://www.oliverjam.es)<br />[💻](https://github.com/kentcdodds/react-toggled/commits?author=oliverjam "Code") | [<img src="https://avatars2.githubusercontent.com/u/11708648?v=4" width="100px;"/><br /><sub><b>Jedrzej Lewandowski</b></sub>](http://www.thefullresolution.com/)<br />[💻](https://github.com/kentcdodds/react-toggled/commits?author=TheFullResolution "Code") |
+| :---: | :---: | :---: | :---: |
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
@@ -239,7 +246,6 @@ MIT
 [all-contributors]: https://github.com/kentcdodds/all-contributors
 [ryan]: https://github.com/ryanflorence
 [compound-components-lecture]: https://courses.reacttraining.com/courses/advanced-react/lectures/3060560
-
 [examples]: https://codesandbox.io/search?refinementList%5Btags%5D%5B0%5D=react-toggled%3Aexample&page=1
 [controlled-components-lecture]: https://courses.reacttraining.com/courses/advanced-react/lectures/3172720
 [react-training]: https://reacttraining.com/
