@@ -79,6 +79,28 @@ test('getTogglerProps returns an onClick that calls the given onClick', () => {
   expect(childSpy).toHaveBeenLastCalledWith(expect.objectContaining({on: true}))
 })
 
+test('getElementTogglerProps returns an onClick that calls the given onClick', () => {
+  const {childSpy, getElementTogglerProps} = setup()
+  const mockClick = jest.fn()
+  const {onClick} = getElementTogglerProps({onClick: mockClick})
+  const fakeEvent = {target: null}
+  onClick(fakeEvent)
+  expect(mockClick).toHaveBeenCalledTimes(1)
+  expect(mockClick).toHaveBeenCalledWith(fakeEvent)
+  expect(childSpy).toHaveBeenLastCalledWith(expect.objectContaining({on: true}))
+})
+
+test('getInputTogglerProps returns an onClick that calls the given onClick', () => {
+  const {childSpy, getInputTogglerProps} = setup()
+  const mockClick = jest.fn()
+  const {onClick} = getInputTogglerProps({onClick: mockClick})
+  const fakeEvent = {target: null}
+  onClick(fakeEvent)
+  expect(mockClick).toHaveBeenCalledTimes(1)
+  expect(mockClick).toHaveBeenCalledWith(fakeEvent)
+  expect(childSpy).toHaveBeenLastCalledWith(expect.objectContaining({on: true}))
+})
+
 test('getElementTogglerProps returns an onKeyUp that toggles on enter', () => {
   const {childSpy, getElementTogglerProps} = setup()
   const {onKeyUp} = getElementTogglerProps()
