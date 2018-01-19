@@ -37,6 +37,7 @@ class Toggle extends Component {
 
   getInputTogglerProps = (props = {}) =>
     this.getTogglerProps({
+      ...props,
       onKeyUp: callAll(props.onKeyUp, event => {
         if (event.key === 'Enter') {
           // <input> already respond to Enter
@@ -47,6 +48,7 @@ class Toggle extends Component {
 
   getElementTogglerProps = (props = {}) =>
     this.getTogglerProps({
+      ...props,
       onKeyUp: callAll(props.onKeyUp, event => {
         if (this.toggleKeys.indexOf(event.key) > -1) {
           this.toggle()
