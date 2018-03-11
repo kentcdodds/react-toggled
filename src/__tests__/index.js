@@ -153,6 +153,21 @@ test('children can be an array (for preact support)', () => {
   )
 })
 
+test('onToggle gets called in controlled prop scenario', () => {
+  const spy = jest.fn()
+  const {wrapper} = setup({on: false, onToggle: spy})
+  expect(spy).not.toHaveBeenCalled()
+  wrapper.setProps({on: true})
+  expect(spy).toHaveBeenCalled()
+})
+
+test('onToggle gets called with fresh state in controlled prop scenario', () => {
+  const spy = jest.fn()
+  const {wrapper} = setup({on: false, onToggle: spy})
+  wrapper.setProps({on: true})
+  expect(spy).toHaveBeenLastCalledWith(true, expect.anything())
+})
+
 function setup({children = () => <div />, ...props} = {}) {
   let renderArg
   const childSpy = jest.fn(controllerArg => {

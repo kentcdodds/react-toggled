@@ -18,8 +18,8 @@ class Toggle extends Component {
     on: this.getOn({on: this.props.defaultOn}),
   }
 
-  getOn(state = this.state) {
-    return this.isOnControlled() ? this.props.on : state.on
+  getOn(state = this.state, props = this.props) {
+    return this.isOnControlled() ? props.on : state.on
   }
 
   isOnControlled() {
@@ -69,18 +69,20 @@ class Toggle extends Component {
   }
 
   setOnState = (state = !this.getOn()) => {
-    if (this.isOnControlled()) {
-      this.props.onToggle(state, this.getTogglerStateAndHelpers())
-    } else {
-      this.setState({on: state}, () => {
-        this.props.onToggle(this.getOn(), this.getTogglerStateAndHelpers())
-      })
-    }
+    this.setState({on: state})
   }
 
   setOn = this.setOnState.bind(this, true)
   setOff = this.setOnState.bind(this, false)
   toggle = this.setOnState.bind(this, undefined)
+
+  componentDidUpdate(prevProps, prevState) {
+    const on = this.getOn()
+
+    if (this.getOn(prevState, prevProps) !== on) {
+      this.props.onToggle(on, this.getTogglerStateAndHelpers())
+    }
+  }
 
   render() {
     const renderProp = unwrapArray(this.props.children)
