@@ -172,10 +172,10 @@ test('onToggle gets called with fresh state in controlled prop scenario', () => 
 
 test('onToggle gets called when setOnState is called in controlled prop scenario', () => {
   const spy = jest.fn()
-  const {getTogglerProps} = setup({on: false, onToggle: spy})
-  const {onClick} = getTogglerProps()
-  const fakeEvent = {target: null}
-  onClick(fakeEvent)
+  const {setOn, setOff} = setup({on: false, onToggle: spy})
+  setOff()
+  expect(spy).not.toHaveBeenCalled()
+  setOn()
   expect(spy).toHaveBeenLastCalledWith(true, expect.anything())
   expect(spy.mock.calls.length).toBe(1)
 })
