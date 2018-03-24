@@ -170,13 +170,14 @@ test('onToggle gets called with fresh state in controlled prop scenario', () => 
   expect(spy.mock.calls.length).toBe(1)
 })
 
-test('onToggle gets called when setOnState is called in controlled prop scenario', () => {
+test('onToggle gets called on internal state change in controlled prop scenario', () => {
   const spy = jest.fn()
-  const {setOn, setOff} = setup({on: false, onToggle: spy})
+  const {setOn, setOff, wrapper} = setup({on: false, onToggle: spy})
   setOff()
   expect(spy).not.toHaveBeenCalled()
   setOn()
   expect(spy).toHaveBeenLastCalledWith(true, expect.anything())
+  wrapper.setProps({on: true})
   expect(spy.mock.calls.length).toBe(1)
 })
 
