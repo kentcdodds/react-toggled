@@ -47,6 +47,16 @@
       "contributions": [
         "code"
       ]
-    }
+    },
+    {
+          "login": "bslinger",
+          "name": "Ben Slinger",
+          "avatar_url": "https://avatars1.githubusercontent.com/u/603386?v=4",
+          "profile": "https://github.com/bslinger",
+          "contributions": [
+            "code",
+            "test"
+          ]
+        }
   ]
 }

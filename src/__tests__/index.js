@@ -159,6 +159,7 @@ test('onToggle gets called in controlled prop scenario', () => {
   expect(spy).not.toHaveBeenCalled()
   wrapper.setProps({on: true})
   expect(spy).toHaveBeenCalled()
+  expect(spy.mock.calls.length).toBe(1)
 })
 
 test('onToggle gets called with fresh state in controlled prop scenario', () => {
@@ -166,6 +167,17 @@ test('onToggle gets called with fresh state in controlled prop scenario', () => 
   const {wrapper} = setup({on: false, onToggle: spy})
   wrapper.setProps({on: true})
   expect(spy).toHaveBeenLastCalledWith(true, expect.anything())
+  expect(spy.mock.calls.length).toBe(1)
+})
+
+test('onToggle gets called when setOnState is called in controlled prop scenario', () => {
+  const spy = jest.fn()
+  const {setOn, setOff} = setup({on: false, onToggle: spy})
+  setOff()
+  expect(spy).not.toHaveBeenCalled()
+  setOn()
+  expect(spy).toHaveBeenLastCalledWith(true, expect.anything())
+  expect(spy.mock.calls.length).toBe(1)
 })
 
 function setup({children = () => <div />, ...props} = {}) {
