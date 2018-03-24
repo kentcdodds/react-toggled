@@ -79,11 +79,9 @@ class Toggle extends Component {
   setOff = this.setOnState.bind(this, false)
   toggle = this.setOnState.bind(this, undefined)
 
-  componentDidUpdate(prevProps, prevState) {
-    const on = this.getOn()
-
-    if (this.getOn(prevState, prevProps) !== on) {
-      this.props.onToggle(on, this.getTogglerStateAndHelpers())
+  componentWillReceiveProps(newProps) {
+    if (newProps.on !== this.props.on && newProps.on !== this.state.on) {
+      this.setOnState(newProps.on)
     }
   }
 
