@@ -2,6 +2,7 @@ import {Component} from 'react'
 import PropTypes from 'prop-types'
 
 const callAll = (...fns) => (...args) => fns.forEach(fn => fn && fn(...args))
+const noop = () => {}
 
 class Toggle extends Component {
   static propTypes = {
@@ -12,7 +13,7 @@ class Toggle extends Component {
   }
   static defaultProps = {
     defaultOn: false,
-    onToggle: () => {},
+    onToggle: noop,
   }
   state = {
     on: this.getOn({on: this.props.defaultOn}),
@@ -69,19 +70,22 @@ class Toggle extends Component {
   }
 
   setOnState = (state = !this.getOn()) => {
-    if (this.getOn() !== state) {
-      this.props.onToggle(state, this.getTogglerStateAndHelpers())
-    }
-    this.setState({on: state})
+    const cb =
+      this.getOn() === state
+        ? noop
+        : () => {
+            this.props.onToggle(state, this.getTogglerStateAndHelpers())
+          }
+    this.setState({on: state}, cb)
   }
 
   setOn = this.setOnState.bind(this, true)
   setOff = this.setOnState.bind(this, false)
   toggle = this.setOnState.bind(this, undefined)
 
-  componentWillReceiveProps(newProps) {
-    if (newProps.on !== this.props.on && newProps.on !== this.state.on) {
-      this.setOnState(newProps.on)
+  componentWillReceiveProps({on}) {
+    if (on !== this.props.on && on !== this.state.on) {
+      this.setOnState(on)
     }
   }
 
