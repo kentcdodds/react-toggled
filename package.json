@@ -8,7 +8,7 @@
   "typings": "typings/index.d.ts",
   "scripts": {
     "add-contributor": "kcd-scripts contributors add",
-    "build": "kcd-scripts build --bundle --p-react --no-clean",
+    "build": "kcd-scripts build --bundle --p-react",
     "lint": "kcd-scripts lint",
     "test": "kcd-scripts test",
     "test:cover": "kcd-scripts test --coverage",
@@ -44,7 +44,7 @@
     "enzyme-adapter-react-16": "^1.0.1",
     "enzyme-to-json": "^3.1.2",
     "jest-serializer-html": "^4.0.0",
-    "kcd-scripts": "^0.39.0",
+    "kcd-scripts": "^0.39.1",
     "preact": "^8.2.1",
     "preact-render-to-string": "^3.6.3",
     "prop-types": "^15.5.10",
