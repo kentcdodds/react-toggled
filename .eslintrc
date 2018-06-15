@@ -1,0 +1,7 @@
+{
+  "extends": "./node_modules/kcd-scripts/eslint.js",
+  "rules": {
+    "react/no-deprecated": 0
+  }
+}
+
