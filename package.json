@@ -1,8 +1,7 @@
 {
   "name": "react-toggled",
   "version": "0.0.0-semantically-released",
-  "description":
-    "Component to build simple, flexible, and accessible toggle components.",
+  "description": "Component to build simple, flexible, and accessible toggle components.",
   "main": "dist/react-toggled.cjs.js",
   "jsnext:main": "dist/react-toggled.esm.js",
   "module": "dist/react-toggled.esm.js",
@@ -15,17 +14,24 @@
     "test:cover": "kcd-scripts test --coverage",
     "test:ts": "tsc --noEmit -p ./tsconfig.json",
     "test:update": "npm run test:cover -s -- --updateSnapshot",
-    "test:build":
-      "kcd-scripts test --config other/misc-tests/jest.config.js --no-watch",
+    "test:build": "kcd-scripts test --config other/misc-tests/jest.config.js --no-watch",
     "build-and-test": "npm run build -s && npm run test:build -s",
     "storybook": "start-storybook -p 6006 -c stories",
-    "storybook:build":
-      "cd stories && npm install && cd .. && build-storybook -c stories",
+    "storybook:build": "cd stories && npm install && cd .. && build-storybook -c stories",
     "validate": "kcd-scripts validate lint,build-and-test,test:cover,test:ts",
     "precommit": "kcd-scripts precommit"
   },
-  "files": ["dist", "typings", "preact"],
-  "keywords": ["toggle", "react", "accessibility", "WAI-ARIA"],
+  "files": [
+    "dist",
+    "typings",
+    "preact"
+  ],
+  "keywords": [
+    "toggle",
+    "react",
+    "accessibility",
+    "WAI-ARIA"
+  ],
   "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kentcdodds.com/)",
   "license": "MIT",
   "peerDependencies": {
@@ -38,7 +44,7 @@
     "enzyme-adapter-react-16": "^1.0.1",
     "enzyme-to-json": "^3.1.2",
     "jest-serializer-html": "^4.0.0",
-    "kcd-scripts": "^0.30.4",
+    "kcd-scripts": "^0.39.0",
     "preact": "^8.2.1",
     "preact-render-to-string": "^3.6.3",
     "prop-types": "^15.5.10",
