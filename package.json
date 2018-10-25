@@ -16,9 +16,10 @@
     "test:update": "npm run test:cover -s -- --updateSnapshot",
     "test:build": "kcd-scripts test --config other/misc-tests/jest.config.js --no-watch",
     "build-and-test": "npm run build -s && npm run test:build -s",
-    "storybook": "start-storybook -p 6006 -c stories",
-    "storybook:build": "cd stories && npm install && cd .. && build-storybook -c stories",
+    "docs:dev": "docz dev",
+    "docs:build": "docz build",
     "validate": "kcd-scripts validate lint,build-and-test,test:cover,test:ts",
+    "setup": "npm install && npm run validate",
     "precommit": "kcd-scripts precommit"
   },
   "files": [
@@ -39,19 +40,16 @@
     "prop-types": ">=15"
   },
   "devDependencies": {
-    "@storybook/react": "^3.2.3",
-    "enzyme": "^3.1.0",
-    "enzyme-adapter-react-16": "^1.0.1",
-    "enzyme-to-json": "^3.1.2",
-    "jest-serializer-html": "^4.0.0",
-    "kcd-scripts": "^0.39.1",
-    "preact": "^8.2.1",
-    "preact-render-to-string": "^3.6.3",
-    "prop-types": "^15.5.10",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-test-renderer": "^16.0.0",
-    "typescript": "^2.6.2"
+    "buble": "^0.19.3",
+    "docz": "^0.12.5",
+    "kcd-scripts": "^0.44.0",
+    "preact": "^8.3.1",
+    "prop-types": "^15.6.2",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-testing-library": "^5.2.0",
+    "jest-dom": "^2.0.4",
+    "typescript": "^3.1.2"
   },
   "eslintConfig": {
     "extends": "./node_modules/kcd-scripts/eslint.js"
@@ -60,7 +58,7 @@
     "node_modules",
     "coverage",
     "dist",
-    "storybook-static",
+    ".docz",
     "typings"
   ],
   "repository": {

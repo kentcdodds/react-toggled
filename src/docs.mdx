@@ -1,0 +1,113 @@
+---
+name: Home
+route: /
+---
+
+import {Playground} from 'docz'
+import Toggle from '.'
+
+# react-toggled
+
+This is mostly just demo stuff, not really intended to be used as docs.
+
+See [the README](https://github.com/kentcdodds/react-toggled) for that.
+
+# Basic
+
+<Playground>
+  <Toggle>
+    {({on, getTogglerProps, setOn, setOff, toggle}) => (
+      <div>
+        <button {...getTogglerProps()}>accessible toggle button</button>
+        <button onClick={toggle}>uses toggle action</button>
+        <button onClick={setOn}>set on</button>
+        <button onClick={setOff}>set off</button>
+        <div>{on ? 'Toggled On' : 'Toggled Off'}</div>
+      </div>
+    )}
+  </Toggle>
+</Playground>
+
+# Checkbox
+
+<Playground>
+  <Toggle>
+    {({on, getInputTogglerProps}) => (
+      <span
+        style={{
+          position: 'relative',
+          display: 'inline-block',
+          width: '20px',
+          height: '20px',
+        }}
+      >
+        <input
+          type="checkbox"
+          checked={on}
+          role="role"
+          aria-checked={on.toString()}
+          style={{
+            width: '100%',
+            height: '100%',
+            margin: 0,
+          }}
+          {...getInputTogglerProps()}
+        />
+        <span
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            background: on ? 'green' : 'gray',
+            pointerEvents: 'none',
+          }}
+        />
+      </span>
+    )}
+  </Toggle>
+</Playground>
+
+# Switch
+
+<Playground>
+  <Toggle>
+    {({on, getElementTogglerProps}) => (
+      <span
+        role="switch"
+        aria-checked={on.toString()}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          display: 'flex',
+          alignItems: 'center',
+          width: '40px',
+          height: '20px',
+        }}
+        {...getElementTogglerProps()}
+      >
+        <span
+          style={{
+            flex: 1,
+            height: '100%',
+            borderRadius: '10px',
+            background: on ? 'green' : 'gray',
+          }}
+        />
+        <span
+          style={{
+            position: 'absolute',
+            width: '16px',
+            height: '16px',
+            borderRadius: '50%',
+            background: 'white',
+            transition: 'transform 0.3s',
+            transform: on ? 'translateX(22px)' : 'translateX(2px)',
+          }}
+        />
+      </span>
+    )}
+  </Toggle>
+</Playground>
