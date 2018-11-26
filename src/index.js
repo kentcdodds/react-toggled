@@ -1,99 +1,73 @@
-import {Component} from 'react'
+import {useState} from 'react'
 import PropTypes from 'prop-types'
 
 const callAll = (...fns) => (...args) => fns.forEach(fn => fn && fn(...args))
-const noop = () => {}
 
-class Toggle extends Component {
-  static propTypes = {
-    defaultOn: PropTypes.bool,
-    on: PropTypes.bool,
-    onToggle: PropTypes.func,
-    children: PropTypes.oneOfType([PropTypes.func, PropTypes.array]).isRequired,
-  }
-  static defaultProps = {
-    defaultOn: false,
-    onToggle: noop,
-  }
-  state = {
-    on: this.getOn({on: this.props.defaultOn}),
-  }
+function useToggle({
+  defaultOn = false,
+  onUseState = useState(defaultOn),
+  on = onUseState[0],
+  setOnState = onUseState[1],
+} = {}) {
+  const setOn = () => setOnState(true)
+  const setOff = () => setOnState(false)
+  const toggle = () => setOnState(!on)
 
-  getOn(state = this.state, props = this.props) {
-    return this.isOnControlled() ? props.on : state.on
-  }
-
-  isOnControlled() {
-    return this.props.on !== undefined
-  }
-
-  getTogglerProps = (props = {}) => ({
-    'aria-expanded': Boolean(this.getOn()),
+  const getTogglerProps = (props = {}) => ({
+    'aria-expanded': Boolean(on),
     tabIndex: 0,
     ...props,
-    onClick: callAll(props.onClick, this.toggle),
+    onClick: callAll(props.onClick, toggle),
   })
 
-  toggleKeys = ['Enter', ' '] // This matches <button> behavior
-
-  getInputTogglerProps = (props = {}) =>
-    this.getTogglerProps({
+  const getInputTogglerProps = (props = {}) =>
+    getTogglerProps({
       ...props,
       onKeyUp: callAll(props.onKeyUp, event => {
         if (event.key === 'Enter') {
           // <input> already respond to Enter
-          this.toggle()
+          toggle()
         }
       }),
     })
 
-  getElementTogglerProps = (props = {}) =>
-    this.getTogglerProps({
+  const toggleKeys = ['Enter', ' '] // This matches <button> behavior
+
+  const getElementTogglerProps = (props = {}) =>
+    getTogglerProps({
       ...props,
       onKeyUp: callAll(props.onKeyUp, event => {
-        if (this.toggleKeys.indexOf(event.key) > -1) {
-          this.toggle()
+        if (toggleKeys.indexOf(event.key) > -1) {
+          toggle()
         }
       }),
     })
 
-  getTogglerStateAndHelpers() {
+  function getTogglerStateAndHelpers() {
     return {
-      on: this.getOn(),
-      getTogglerProps: this.getTogglerProps,
-      getInputTogglerProps: this.getInputTogglerProps,
-      getElementTogglerProps: this.getElementTogglerProps,
-      setOn: this.setOn,
-      setOff: this.setOff,
-      toggle: this.toggle,
+      on,
+      getTogglerProps,
+      getInputTogglerProps,
+      getElementTogglerProps,
+      setOn,
+      setOff,
+      toggle,
     }
   }
 
-  setOnState = (state = !this.getOn()) => {
-    const cb =
-      this.getOn() === state
-        ? noop
-        : () => {
-            this.props.onToggle(state, this.getTogglerStateAndHelpers())
-          }
-    this.setState({on: state}, cb)
-  }
-
-  setOn = this.setOnState.bind(this, true)
-  setOff = this.setOnState.bind(this, false)
-  toggle = this.setOnState.bind(this, undefined)
-
-  componentWillReceiveProps({on}) {
-    if (on !== this.props.on && on !== this.state.on) {
-      this.setOnState(on)
-    }
-  }
-
-  render() {
-    const renderProp = unwrapArray(this.props.children)
-    return renderProp(this.getTogglerStateAndHelpers())
-  }
+  return getTogglerStateAndHelpers()
 }
+
+const Toggle = ({children, ...props}) => unwrapArray(children)(useToggle(props))
+Toggle.propTypes = {
+  defaultOn: PropTypes.bool,
+  on: PropTypes.bool,
+  onToggle: PropTypes.func,
+  children: PropTypes.oneOfType([PropTypes.func, PropTypes.array]).isRequired,
+}
+
+export {useToggle}
+export default Toggle
 
 /**
  * Takes an argument and if it's an array, returns the first item in the array
@@ -104,5 +78,3 @@ class Toggle extends Component {
 function unwrapArray(arg) {
   return Array.isArray(arg) ? arg[0] : arg
 }
-
-export default Toggle

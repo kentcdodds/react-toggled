@@ -34,11 +34,13 @@ test('setOn sets `on` to true', () => {
 })
 
 test('toggle changes the `on` state', () => {
-  const {childSpy, toggle} = setup()
-  toggle()
-  expect(childSpy).toHaveBeenLastCalledWith(expect.objectContaining({on: true}))
-  toggle()
-  expect(childSpy).toHaveBeenLastCalledWith(
+  const utils = setup()
+  utils.toggle()
+  expect(utils.childSpy).toHaveBeenLastCalledWith(
+    expect.objectContaining({on: true}),
+  )
+  utils.toggle()
+  expect(utils.childSpy).toHaveBeenLastCalledWith(
     expect.objectContaining({on: false}),
   )
 })
@@ -153,40 +155,12 @@ test('children can be an array (for preact support)', () => {
   )
 })
 
-test('onToggle gets called in controlled prop scenario', () => {
-  const spy = jest.fn()
-  const {wrapper} = setup({on: false, onToggle: spy})
-  expect(spy).not.toHaveBeenCalled()
-  wrapper.setProps({on: true})
-  expect(spy).toHaveBeenCalled()
-  expect(spy.mock.calls.length).toBe(1)
-})
-
-test('onToggle gets called with fresh state in controlled prop scenario', () => {
-  const spy = jest.fn()
-  const {wrapper} = setup({on: false, onToggle: spy})
-  wrapper.setProps({on: true})
-  expect(spy).toHaveBeenLastCalledWith(true, expect.anything())
-  expect(spy.mock.calls.length).toBe(1)
-})
-
-test('onToggle gets called on internal state change in controlled prop scenario', () => {
-  const spy = jest.fn()
-  const {setOn, setOff, wrapper} = setup({on: false, onToggle: spy})
-  setOff()
-  expect(spy).not.toHaveBeenCalled()
-  setOn()
-  expect(spy).toHaveBeenLastCalledWith(true, expect.anything())
-  wrapper.setProps({on: true})
-  expect(spy.mock.calls.length).toBe(1)
-})
-
 function setup({children = () => <div />, ...props} = {}) {
-  let renderArg
+  const utils = {}
   const childSpy = jest.fn(controllerArg => {
-    renderArg = controllerArg
+    Object.assign(utils, controllerArg)
     return children(controllerArg)
   })
   const wrapper = mount(<Toggler {...props}>{childSpy}</Toggler>)
-  return {childSpy, wrapper, ...renderArg}
+  return Object.assign(utils, {childSpy, wrapper})
 }
