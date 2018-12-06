@@ -49,14 +49,24 @@
       ]
     },
     {
-          "login": "bslinger",
-          "name": "Ben Slinger",
-          "avatar_url": "https://avatars1.githubusercontent.com/u/603386?v=4",
-          "profile": "https://github.com/bslinger",
-          "contributions": [
-            "code",
-            "test"
-          ]
-        }
-  ]
+      "login": "bslinger",
+      "name": "Ben Slinger",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/603386?v=4",
+      "profile": "https://github.com/bslinger",
+      "contributions": [
+        "code",
+        "test"
+      ]
+    },
+    {
+      "login": "milamer",
+      "name": "milamer",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/12884134?v=4",
+      "profile": "https://github.com/milamer",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "repoType": "github"
 }

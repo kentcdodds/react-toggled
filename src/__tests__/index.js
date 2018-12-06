@@ -34,13 +34,11 @@ test('setOn sets `on` to true', () => {
 })
 
 test('toggle changes the `on` state', () => {
-  const utils = setup()
-  utils.toggle()
-  expect(utils.childSpy).toHaveBeenLastCalledWith(
-    expect.objectContaining({on: true}),
-  )
-  utils.toggle()
-  expect(utils.childSpy).toHaveBeenLastCalledWith(
+  const {childSpy, toggle} = setup()
+  toggle()
+  expect(childSpy).toHaveBeenLastCalledWith(expect.objectContaining({on: true}))
+  toggle()
+  expect(childSpy).toHaveBeenLastCalledWith(
     expect.objectContaining({on: false}),
   )
 })
@@ -156,11 +154,11 @@ test('children can be an array (for preact support)', () => {
 })
 
 function setup({children = () => <div />, ...props} = {}) {
-  const utils = {}
+  let renderArg
   const childSpy = jest.fn(controllerArg => {
-    Object.assign(utils, controllerArg)
+    renderArg = controllerArg
     return children(controllerArg)
   })
   const wrapper = mount(<Toggler {...props}>{childSpy}</Toggler>)
-  return Object.assign(utils, {childSpy, wrapper})
+  return {childSpy, wrapper, ...renderArg}
 }
