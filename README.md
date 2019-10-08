@@ -20,7 +20,7 @@
 [![version][version-badge]][package]
 [![MIT License][license-badge]][license]
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors)
 [![PRs Welcome][prs-badge]][prs]
 [![Chat][chat-badge]][chat]
 [![Code of Conduct][coc-badge]][coc]
@@ -203,8 +203,17 @@ Thanks goes to these people ([emoji key][emojis]):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars.githubusercontent.com/u/1500684?v=3" width="100px;"/><br /><sub><b>Kent C. Dodds</b></sub>](https://kentcdodds.com)<br />[💻](https://github.com/kentcdodds/react-toggled/commits?author=kentcdodds "Code") [📖](https://github.com/kentcdodds/react-toggled/commits?author=kentcdodds "Documentation") [🚇](#infra-kentcdodds "Infrastructure (Hosting, Build-Tools, etc)") [⚠️](https://github.com/kentcdodds/react-toggled/commits?author=kentcdodds "Tests") | [<img src="https://avatars3.githubusercontent.com/u/9488719?v=4" width="100px;"/><br /><sub><b>Frank Tan</b></sub>](https://github.com/tansongyang)<br />[💻](https://github.com/kentcdodds/react-toggled/commits?author=tansongyang "Code") [📖](https://github.com/kentcdodds/react-toggled/commits?author=tansongyang "Documentation") [⚠️](https://github.com/kentcdodds/react-toggled/commits?author=tansongyang "Tests") | [<img src="https://avatars1.githubusercontent.com/u/9408641?v=4" width="100px;"/><br /><sub><b>Oliver</b></sub>](http://www.oliverjam.es)<br />[💻](https://github.com/kentcdodds/react-toggled/commits?author=oliverjam "Code") | [<img src="https://avatars2.githubusercontent.com/u/11708648?v=4" width="100px;"/><br /><sub><b>Jedrzej Lewandowski</b></sub>](http://www.thefullresolution.com/)<br />[💻](https://github.com/kentcdodds/react-toggled/commits?author=TheFullResolution "Code") | [<img src="https://avatars1.githubusercontent.com/u/603386?v=4" width="100px;"/><br /><sub><b>Ben Slinger</b></sub>](https://github.com/bslinger)<br />[💻](https://github.com/kentcdodds/react-toggled/commits?author=bslinger "Code") [⚠️](https://github.com/kentcdodds/react-toggled/commits?author=bslinger "Tests") |
-| :---: | :---: | :---: | :---: | :---: |
+<table>
+  <tr>
+    <td align="center"><a href="https://kentcdodds.com"><img src="https://avatars.githubusercontent.com/u/1500684?v=3" width="100px;" alt="Kent C. Dodds"/><br /><sub><b>Kent C. Dodds</b></sub></a><br /><a href="https://github.com/kentcdodds/react-toggled/commits?author=kentcdodds" title="Code">💻</a> <a href="https://github.com/kentcdodds/react-toggled/commits?author=kentcdodds" title="Documentation">📖</a> <a href="#infra-kentcdodds" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/kentcdodds/react-toggled/commits?author=kentcdodds" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/tansongyang"><img src="https://avatars3.githubusercontent.com/u/9488719?v=4" width="100px;" alt="Frank Tan"/><br /><sub><b>Frank Tan</b></sub></a><br /><a href="https://github.com/kentcdodds/react-toggled/commits?author=tansongyang" title="Code">💻</a> <a href="https://github.com/kentcdodds/react-toggled/commits?author=tansongyang" title="Documentation">📖</a> <a href="https://github.com/kentcdodds/react-toggled/commits?author=tansongyang" title="Tests">⚠️</a></td>
+    <td align="center"><a href="http://www.oliverjam.es"><img src="https://avatars1.githubusercontent.com/u/9408641?v=4" width="100px;" alt="Oliver"/><br /><sub><b>Oliver</b></sub></a><br /><a href="https://github.com/kentcdodds/react-toggled/commits?author=oliverjam" title="Code">💻</a></td>
+    <td align="center"><a href="http://www.thefullresolution.com/"><img src="https://avatars2.githubusercontent.com/u/11708648?v=4" width="100px;" alt="Jedrzej Lewandowski"/><br /><sub><b>Jedrzej Lewandowski</b></sub></a><br /><a href="https://github.com/kentcdodds/react-toggled/commits?author=TheFullResolution" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/bslinger"><img src="https://avatars1.githubusercontent.com/u/603386?v=4" width="100px;" alt="Ben Slinger"/><br /><sub><b>Ben Slinger</b></sub></a><br /><a href="https://github.com/kentcdodds/react-toggled/commits?author=bslinger" title="Code">💻</a> <a href="https://github.com/kentcdodds/react-toggled/commits?author=bslinger" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://stackshare.io/jdorfman/decisions"><img src="https://avatars1.githubusercontent.com/u/398230?v=4" width="100px;" alt="Justin Dorfman"/><br /><sub><b>Justin Dorfman</b></sub></a><br /><a href="#fundingFinding-jdorfman" title="Funding Finding">🔍</a></td>
+  </tr>
+</table>
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
