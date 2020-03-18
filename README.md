@@ -1,9 +1,3 @@
-<p align="center">
-<a href="https://codefund.io/properties/494/visit-sponsor">
-<img src="https://codefund.io/properties/494/sponsor" />
-</a>
-</p>
-
 <h1 align="center">
   react-toggled ⚛️
   <br>
