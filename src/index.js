@@ -57,9 +57,11 @@ class Toggle extends Component {
       }),
     })
 
-  getTogglerStateAndHelpers() {
+  // having an override here makes getTogglerProps return "outdated" aria-expanded for that case
+  // is that a problem?
+  getTogglerStateAndHelpers(on = this.getOn()) {
     return {
-      on: this.getOn(),
+      on,
       getTogglerProps: this.getTogglerProps,
       getInputTogglerProps: this.getInputTogglerProps,
       getElementTogglerProps: this.getElementTogglerProps,
@@ -70,24 +72,23 @@ class Toggle extends Component {
   }
 
   setOnState = (state = !this.getOn()) => {
-    const cb =
-      this.getOn() === state
-        ? noop
-        : () => {
-            this.props.onToggle(state, this.getTogglerStateAndHelpers())
-          }
-    this.setState({on: state}, cb)
+    if (this.getOn() === state) {
+      return
+    }
+
+    // should we differentiate timing for uncontrolled/controlled modes?
+    this.props.onToggle(state, this.getTogglerStateAndHelpers(state))
+
+    if (this.isOnControlled()) {
+      return
+    }
+
+    this.setState({on: state})
   }
 
   setOn = this.setOnState.bind(this, true)
   setOff = this.setOnState.bind(this, false)
   toggle = this.setOnState.bind(this, undefined)
-
-  componentWillReceiveProps({on}) {
-    if (on !== this.props.on && on !== this.state.on) {
-      this.setOnState(on)
-    }
-  }
 
   render() {
     const renderProp = unwrapArray(this.props.children)
